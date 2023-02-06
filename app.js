@@ -1,5 +1,6 @@
 const $keys = document.querySelector(".calculator-keys");
 const $display = document.querySelector(".display");
+const $operators = $keys.getElementsByClassName("operator");
 
 const calculator = {
   displayValue: "0",

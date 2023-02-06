@@ -2,7 +2,6 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
-    /* font-size: 2rem; */
 }
 
 body {
@@ -77,8 +76,40 @@ body {
     font-size: 1.5rem;
 }
 
+.active {
+    border: 2px solid rgba(139, 0, 139, 0.8)
+}
+
 .delete {
     background-color: #EA738DFF;
     border: none;
     color: #FFFFFF;
 } 
+
+@media screen and (max-width: 820px) {
+    .calculator > .calculator-keys {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        grid-template-columns: repeat(4, 120px);
+        grid-template-rows: minmax(120px, auto) repeat(4, 120px);
+    }
+
+    .display {
+        width: 480px;
+    }
+}
+
+@media screen and (max-width: 493px) {
+    .calculator > .calculator-keys {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        grid-template-columns: repeat(4, 75px);
+        grid-template-rows: minmax(100px, auto) repeat(4, 75px);
+    }
+
+    .display {
+        width: 300px;
+    }
+}
