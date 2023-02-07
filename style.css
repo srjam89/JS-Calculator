@@ -75,10 +75,17 @@ body {
 .operator {
     font-size: 1.5rem;
 }
-
-.active {
-    border: 2px solid rgba(139, 0, 139, 0.8)
+.operator {
+    font-size: 1.5rem;
 }
+
+.operator:focus {
+    border: 2px solid rgba(139, 0, 139, 0.8);
+}
+
+/* .active {
+    border: 2px solid rgba(139, 0, 139, 0.8)
+} */
 
 .delete {
     background-color: #EA738DFF;

@@ -1,6 +1,7 @@
 const $keys = document.querySelector(".calculator-keys");
 const $display = document.querySelector(".display");
 const $operators = $keys.getElementsByClassName("operator");
+const $equals = $keys.getElementsByClassName("equals");
 
 const calculator = {
   displayValue: "0",
@@ -55,6 +56,25 @@ document.addEventListener("keydown", (e) => {
     removeNumberFromDisplay();
   }
 });
+
+// for (let i = 0; i < $operators.length; i++) {
+//   $operators[i].addEventListener("click", function () {
+//     var current = document.getElementsByClassName("active");
+
+//     // If there's no active class
+//     if (current.length > 0) {
+//       current[0].className = current[0].className.replace(" active", "");
+//     }
+//     if ($equals) {
+//       // current[0].className.replace(" active", "");
+//       // current[0].className = current[0].className.replace(" active", "");
+//       this.className = "";
+//     }
+
+//     // Add the active class to the current/clicked button
+//     this.className += " active";
+//   });
+// }
 
 const removeNumberFromDisplay = () => {
   if (calculator.error) {
@@ -120,6 +140,10 @@ const performSum = () => {
   if (error) {
     calculator.newNumber = true;
     calculator.numbers = [];
+  } else if (sum.includes(".")) {
+    let num = parseFloat(sum);
+    let decimal = num.toFixed(6);
+    calculator.displayValue = decimal;
   } else {
     calculator.numbers = [sum];
   }
@@ -127,7 +151,7 @@ const performSum = () => {
 };
 
 const updateDisplay = () => {
-  $display.value = calculator.displayValue;
+  $display.value = parseFloat(calculator.displayValue);
 };
 updateDisplay();
 
